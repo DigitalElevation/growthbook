@@ -1,10 +1,10 @@
 ARG PYTHON_MAJOR=3.11
 ARG NODE_MAJOR=20
-ARG APP_ORIGIN=http://growthbook-production.up.railway.app:3000
-ARG API_HOST=http://growthbook-production.up.railway.app:3100
 
 # Build the python gbstats package
 FROM python:${PYTHON_MAJOR}-slim AS pybuild
+ENV APP_ORIGIN=http://growthbook-production.up.railway.app:3000
+ENV API_HOST=http://growthbook-production.up.railway.app:3100
 WORKDIR /usr/local/src/app
 COPY ./packages/stats .
 RUN \
